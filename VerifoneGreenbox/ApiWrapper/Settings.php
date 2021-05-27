@@ -4,7 +4,6 @@ namespace VerifoneGreenbox\ApiWrapper;
 
 class Settings
 {
-
     private $test;
     private $region;
     private $api_username;

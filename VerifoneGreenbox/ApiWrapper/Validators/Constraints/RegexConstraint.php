@@ -10,7 +10,7 @@ class RegexConstraint {
             if($message) {
                 throw new RegexConstraintException($message);
             }
-            throw new RegexConstraintException('Value must be a string');
+            throw new RegexConstraintException(sprintf('Provided value %s does not match regex provided %s', $parameter, $regexPattern));
         }
     }
 }
