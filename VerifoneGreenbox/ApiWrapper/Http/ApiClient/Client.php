@@ -10,6 +10,10 @@ use VerifoneGreenbox\ApiWrapper\Schemas\SchemaInterface;
 use VerifoneGreenbox\ApiWrapper\Settings;
 use VerifoneGreenbox\ApiWrapper\Validators\Validator;
 
+/**
+ * Class Client
+ * @package VerifoneGreenbox\ApiWrapper\Http\ApiClient
+ */
 class Client
 {
 
@@ -19,6 +23,12 @@ class Client
     private $authentication;
     private $token;
 
+    /**
+     * Client constructor.
+     * @param AbstractRegion $region
+     * @param Settings $settings
+     * @param AuthenticationInterface $authentication
+     */
     public function __construct(AbstractRegion $region, Settings $settings, AuthenticationInterface $authentication)
     {
         $this->region = $region;
@@ -74,8 +84,17 @@ class Client
         return $this->decodeResult($result->getResult());
     }
 
-    public function postRefund(array $payload, $transactionId)
+    /**
+     * @param array $payload
+     * @param $transactionId
+     * @param SchemaInterface|null $schema
+     * @return mixed
+     * @throws HttpException
+     */
+    public function postRefund(array $payload, $transactionId, SchemaInterface $schema = null)
     {
+        $this->validateSchema($schema, $payload);
+
         $result = $this->simpleCurl->setOpt(CURLOPT_URL, $this->region->getRefundUrl($transactionId))
             ->setOpt(CURLOPT_RETURNTRANSFER, true)
             ->setOpt(CURLOPT_POST, true)

@@ -2,6 +2,10 @@
 
 namespace VerifoneGreenbox\ApiWrapper\Regions\Interfaces;
 
+/**
+ * Interface CheckoutUrlInterface
+ * @package VerifoneGreenbox\ApiWrapper\Regions\Interfaces
+ */
 interface CheckoutUrlInterface
 {
 

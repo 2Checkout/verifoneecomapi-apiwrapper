@@ -2,6 +2,10 @@
 
 namespace VerifoneGreenbox\ApiWrapper\Schemas;
 
+/**
+ * Class RefundSchema
+ * @package VerifoneGreenbox\ApiWrapper\Schemas
+ */
 class RefundSchema implements SchemaInterface
 {
     public function getSchema()

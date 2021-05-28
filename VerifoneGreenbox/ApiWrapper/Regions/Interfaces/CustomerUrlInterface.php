@@ -2,6 +2,10 @@
 
 namespace VerifoneGreenbox\ApiWrapper\Regions\Interfaces;
 
+/**
+ * Interface CustomerUrlInterface
+ * @package VerifoneGreenbox\ApiWrapper\Regions\Interfaces
+ */
 interface CustomerUrlInterface {
 
     /**

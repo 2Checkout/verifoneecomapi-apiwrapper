@@ -2,6 +2,10 @@
 
 namespace VerifoneGreenbox\ApiWrapper;
 
+/**
+ * Class Settings
+ * @package VerifoneGreenbox\ApiWrapper
+ */
 class Settings
 {
     private $test;

@@ -2,6 +2,10 @@
 
 namespace VerifoneGreenbox\ApiWrapper\Regions\Interfaces;
 
+/**
+ * Interface TokenUrlInterface
+ * @package VerifoneGreenbox\ApiWrapper\Regions\Interfaces
+ */
 interface TokenUrlInterface
 {
 

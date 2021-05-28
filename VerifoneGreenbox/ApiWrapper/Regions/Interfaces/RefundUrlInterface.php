@@ -2,6 +2,10 @@
 
 namespace VerifoneGreenbox\ApiWrapper\Regions\Interfaces;
 
+/**
+ * Interface RefundUrlInterface
+ * @package VerifoneGreenbox\ApiWrapper\Regions\Interfaces
+ */
 interface RefundUrlInterface
 {
     /**

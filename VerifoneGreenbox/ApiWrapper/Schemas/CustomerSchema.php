@@ -2,6 +2,10 @@
 
 namespace VerifoneGreenbox\ApiWrapper\Schemas;
 
+/**
+ * Class CustomerSchema
+ * @package VerifoneGreenbox\ApiWrapper\Schemas
+ */
 class CustomerSchema implements SchemaInterface
 {
     public function getSchema()

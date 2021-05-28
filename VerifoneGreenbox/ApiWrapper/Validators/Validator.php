@@ -11,8 +11,17 @@ use VerifoneGreenbox\ApiWrapper\Validators\Constraints\RequiredConstraint;
 use VerifoneGreenbox\ApiWrapper\Validators\Constraints\StringConstraint;
 use VerifoneGreenbox\ApiWrapper\Validators\Constraints\ValuesConstraint;
 
+/**
+ * Class Validator
+ * @package VerifoneGreenbox\ApiWrapper\Validators
+ */
 class Validator
 {
+    /**
+     * @param SchemaInterface $schema
+     * @param array $toValidate
+     * @throws \Exception
+     */
     public function validate(SchemaInterface $schema, array $toValidate)
     {
         $schema = $schema->getSchema();

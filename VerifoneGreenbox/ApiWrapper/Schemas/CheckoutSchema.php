@@ -2,6 +2,10 @@
 
 namespace VerifoneGreenbox\ApiWrapper\Schemas;
 
+/**
+ * Class CheckoutSchema
+ * @package VerifoneGreenbox\ApiWrapper\Schemas
+ */
 class CheckoutSchema implements SchemaInterface
 {
     public function getSchema()
