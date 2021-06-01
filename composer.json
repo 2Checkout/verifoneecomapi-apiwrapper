@@ -1,9 +1,9 @@
 {
-  "name": "verifonegreenbox/apiwrapper",
+  "name": "verifoneapi/apiwrapper",
   "type": "library",
-  "description": "API wrapper for Verifone greenbox API",
+  "description": "API wrapper for Verifone API",
   "keywords": ["log","logging"],
-  "homepage": "https://github.com/2Checkout/verifonegreenbox-apiwrapper",
+  "homepage": "https://github.com/2Checkout/verifoneapi-apiwrapper",
   "license": "MIT",
   "authors": [
     {
@@ -19,7 +19,7 @@
   },
   "autoload": {
     "psr-0": {
-      "VerifoneGreenbox": "VerifoneGreenbox"
+      "VerifoneApi": "VerifoneApi"
     }
   }
 }
