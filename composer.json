@@ -1,9 +1,9 @@
 {
-  "name": "verifoneapi/apiwrapper",
+  "name": "verifoneecommapi/apiwrapper",
   "type": "library",
   "description": "API wrapper for Verifone API",
   "keywords": ["log","logging"],
-  "homepage": "https://github.com/2Checkout/verifoneapi-apiwrapper",
+  "homepage": "https://github.com/2Checkout/verifoneecommapi-apiwrapper",
   "license": "MIT",
   "authors": [
     {
@@ -19,7 +19,7 @@
   },
   "autoload": {
     "psr-0": {
-      "VerifoneApi": "VerifoneApi"
+      "VerifoneEcommApi": "VerifoneEcommApi"
     }
   }
 }

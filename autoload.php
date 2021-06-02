@@ -12,10 +12,10 @@
 spl_autoload_register(function ($class) {
 
     // project-specific namespace prefix
-    $prefix = 'VerifoneApi\\ApiWrapper\\';
+    $prefix = 'VerifoneEcomAPI\\ApiWrapper\\';
 
     // base directory for the namespace prefix
-    $base_dir = __DIR__ . '/VerifoneApi/ApiWrapper/';
+    $base_dir = __DIR__ . '/VerifoneEcommApi/ApiWrapper/';
 
     // does the class use the namespace prefix?
     $len = strlen($prefix);
