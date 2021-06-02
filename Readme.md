@@ -7,7 +7,7 @@ Verifone API wrapper is a simple PHP library meant for quickstart some of the mo
 Use the package manager [composer](https://getcomposer.org/) to install this package.
 
 ```bash
-composer require verifoneapi/apiwrapper
+composer require verifoneecommapi/apiwrapper
 ```
 
 ## Usage
@@ -62,7 +62,7 @@ try {
     // alternatively you can skip the 2nd parameter to not do a check on the 
     // values passed in the customer array
     // $result = $this->client->postCustomer($customer);
-} catch (\VerifoneApi\ApiWrapper\Http\HttpException $exception) {
+} catch (\VerifoneEcommApi\ApiWrapper\Http\HttpException $exception) {
     // treat exception here
 }
 
@@ -97,7 +97,7 @@ try {
     // alternatively you can skip the 2nd parameter to not do a check on the 
     // values passed in the checkout array
     // $result = $this->client->postCheckout($customer);
-} catch (\VerifoneApi\ApiWrapper\Http\HttpException $exception) {
+} catch (\VerifoneEcommApi\ApiWrapper\Http\HttpException $exception) {
     // treat exception here
 }
 
