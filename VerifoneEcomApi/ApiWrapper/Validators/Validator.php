@@ -37,7 +37,7 @@ class Validator
             }
 
             if (!isset($schema[$key])) {
-                throw new \Exception('Invalid key');
+                throw new \Exception(sprintf('Key %s is not present in schema', $key));
             }
 
             foreach ($schema[$key] as $schemaKey => $schemaValue) {

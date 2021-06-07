@@ -12,7 +12,7 @@ class RequiredConstraint extends NotBlankConstraint {
             if($message) {
                 throw new RequiredConstraintException($message);
             }
-            throw new RequiredConstraintException('The field is required');
+            throw new RequiredConstraintException(sprintf('The field %s is required', $parameter));
         }
     }
 }
