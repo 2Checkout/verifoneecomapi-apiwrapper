@@ -14,7 +14,7 @@ final class Emea extends AbstractRegion
     protected $envTestBaseCustomerUrl = 'https://cst2.test-gsc.vfims.com';
 
     protected $envLiveBaseCheckoutUrl = 'https://checkout-emea.dimebox.com';
-    protected $envTestBaseCheckoutUrl = 'https://checkout_cst.dimebox.com';
+    protected $envTestBaseCheckoutUrl = 'https://cst2.test-gsc.vfims.com';
 
     protected $envLiveBasePaymentsUrl = 'https://gsc.verifone.cloud';
     protected $envTestBasePaymentsUrl = 'https://cst2.test-gsc.vfims.com';

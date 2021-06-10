@@ -41,7 +41,53 @@ class Client
         $this->authentication = $authentication;
         $this->settings = $settings;
         $this->simpleCurl = $simpleCurl;
+    }
+
+
+    /**
+     * @param array $payload
+     * @param $transactionId
+     * @param SchemaInterface|null $schema
+     * @return mixed
+     * @throws HttpException
+     */
+    public function postCapture(array $payload, $transactionId, SchemaInterface $schema = null)
+    {
         $this->token = $this->authentication->getAuth();
+
+        $this->validateSchema($schema, $payload);
+
+        $result = $this->simpleCurl->setOpt(CURLOPT_URL, $this->region->postCaptureUrl($transactionId))
+            ->setOpt(CURLOPT_RETURNTRANSFER, true)
+            ->setOpt(CURLOPT_POST, true)
+            ->setOpt(CURLOPT_POSTFIELDS, json_encode($payload))
+            ->setOpt(CURLOPT_HTTPHEADER, $this->getHeaders());
+        $this->addSsl($result);
+
+        return $this->decodeResult($result->getResult());
+    }
+
+    /**
+     * @param array $payload
+     * @param $transactionId
+     * @param SchemaInterface|null $schema
+     * @return mixed
+     * @throws HttpException
+     */
+    public function postVoidAuthorization(array $payload, $transactionId, SchemaInterface $schema = null)
+    {
+        $this->token = $this->authentication->getAuth();
+
+        $this->validateSchema($schema, $payload);
+
+        $result = $this->simpleCurl->setOpt(CURLOPT_URL, $this->region->postVoidAuthorizationUrl($transactionId))
+            ->setOpt(CURLOPT_RETURNTRANSFER, true)
+            ->setOpt(CURLOPT_POST, true)
+            ->setOpt(CURLOPT_POSTFIELDS, json_encode($payload))
+            ->setOpt(CURLOPT_HTTPHEADER, $this->getHeaders());
+        $this->addSsl($result);
+
+        return $this->decodeResult($result->getResult());
     }
 
     /**
@@ -52,6 +98,8 @@ class Client
      */
     public function postCustomer(array $payload, SchemaInterface $schema = null)
     {
+        $this->token = $this->authentication->getAuth();
+
         $this->validateSchema($schema, $payload);
 
         $result = $this->simpleCurl->setOpt(CURLOPT_URL, $this->region->postCustomerUrl())
@@ -72,6 +120,8 @@ class Client
      */
     public function postCheckout(array $payload, SchemaInterface $schema = null)
     {
+        $this->token = $this->authentication->getAuth();
+
         $this->validateSchema($schema, $payload);
 
         $result = $this->simpleCurl->setOpt(CURLOPT_URL, $this->region->postCheckoutUrl())
@@ -93,6 +143,8 @@ class Client
      */
     public function postRefund(array $payload, $transactionId, SchemaInterface $schema = null)
     {
+        $this->token = $this->authentication->getAuth();
+
         $this->validateSchema($schema, $payload);
 
         $result = $this->simpleCurl->setOpt(CURLOPT_URL, $this->region->getRefundUrl($transactionId))
@@ -112,6 +164,8 @@ class Client
      */
     public function getCheckout($checkoutId)
     {
+        $this->token = $this->authentication->getAuth();
+
         $result = $this->simpleCurl->setOpt(CURLOPT_URL, $this->region->getCheckoutUrl($checkoutId))
             ->setOpt(CURLOPT_RETURNTRANSFER, true)
             ->setOpt(CURLOPT_HTTPHEADER, $this->getHeaders());

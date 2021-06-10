@@ -14,7 +14,7 @@ final class Na extends AbstractRegion
     protected $envTestBaseCustomerUrl = 'https://uscst-gb.gsc.vficloud.net';
 
     protected $envLiveBaseCheckoutUrl = 'https://us.checkout.verifone.cloud';
-    protected $envTestBaseCheckoutUrl = 'https://uscst.checkout.vficloud.net';
+    protected $envTestBaseCheckoutUrl = 'https://uscst-gb.gsc.vficloud.net';
 
     protected $envLiveBasePaymentsUrl = 'https://us.gsc.verifone.cloud';
     protected $envTestBasePaymentsUrl = 'https://uscst-gb.gsc.vficloud.net';

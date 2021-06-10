@@ -27,6 +27,25 @@ class Settings
     private $overlay_on_place_order;
     private $cvv_on_payment;
     private $complete_order_on_payment;
+    private $manualCapture;
+
+    /**
+     * @return mixed
+     */
+    public function getManualCapture()
+    {
+        return $this->manualCapture;
+    }
+
+    /**
+     * @param mixed $manualCapture
+     * @return Settings
+     */
+    public function setManualCapture($manualCapture)
+    {
+        $this->manualCapture = $manualCapture;
+        return $this;
+    }
 
     /**
      * @return mixed

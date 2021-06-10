@@ -2,13 +2,15 @@
 
 namespace VerifoneEcomAPI\ApiWrapper\Regions;
 
+use VerifoneEcomAPI\ApiWrapper\Regions\Interfaces\CaptureInterface;
 use VerifoneEcomAPI\ApiWrapper\Regions\Interfaces\CheckoutUrlInterface;
 use VerifoneEcomAPI\ApiWrapper\Regions\Interfaces\CustomerUrlInterface;
 use VerifoneEcomAPI\ApiWrapper\Regions\Interfaces\RefundUrlInterface;
 use VerifoneEcomAPI\ApiWrapper\Regions\Interfaces\TokenUrlInterface;
+use VerifoneEcomAPI\ApiWrapper\Regions\Interfaces\VoidAuthorizationInterface;
 use VerifoneEcomAPI\ApiWrapper\Settings;
 
-abstract class AbstractRegion implements CheckoutUrlInterface, CustomerUrlInterface, RefundUrlInterface, TokenUrlInterface
+abstract class AbstractRegion implements CheckoutUrlInterface, CustomerUrlInterface, RefundUrlInterface, TokenUrlInterface, CaptureInterface, VoidAuthorizationInterface
 {
     /**
      * @var Settings
@@ -89,6 +91,19 @@ abstract class AbstractRegion implements CheckoutUrlInterface, CustomerUrlInterf
         return $this->settings->isTest() ? $this->envTestBaseCustomerUrl . $path : $this->envLiveBaseCustomerUrl . $path;
     }
 
+    public function postCaptureUrl($captureId)
+    {
+        $path = sprintf('/oidc/api/%s/transactions/%s/capture', $this->getVerifoneApiVersion(), $captureId);
+
+        return $this->settings->isTest() ? $this->envTestBasePaymentsUrl . $path : $this->envLiveBasePaymentsUrl . $path;
+    }
+
+    public function postVoidAuthorizationUrl($transactionId) {
+        $path = sprintf('/oidc/api/%s/transactions/%s/void', $this->getVerifoneApiVersion(), $transactionId);
+
+        return $this->settings->isTest() ? $this->envTestBasePaymentsUrl . $path : $this->envLiveBasePaymentsUrl . $path;
+    }
+
     protected function getVerifoneApiVersion()
     {
         return 'v2';
@@ -101,7 +116,7 @@ abstract class AbstractRegion implements CheckoutUrlInterface, CustomerUrlInterf
 
     protected function getRefundPartialPath($transactionId)
     {
-        return sprintf(('/oidc/api/' . $this->getVerifonePaymentsApiVersion() . '/transactions/%s/refund'), $transactionId);
+        return sprintf(('/oidc/api/%s/transactions/%s/refund'), $this->getVerifonePaymentsApiVersion(), $transactionId);
     }
 
     protected function getCustomerPartialPath()
@@ -111,6 +126,6 @@ abstract class AbstractRegion implements CheckoutUrlInterface, CustomerUrlInterf
 
     protected function getCheckoutPartialPath()
     {
-        return '/' . $this->getVerifoneApiVersion() . '/checkout';
+        return '/oidc/checkout-service/' . $this->getVerifoneApiVersion() . '/checkout';
     }
 }

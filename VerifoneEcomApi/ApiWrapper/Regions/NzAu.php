@@ -14,7 +14,7 @@ final class NzAu extends AbstractRegion
     protected $envTestBaseCustomerUrl = 'https://cst2.test-gsc.vfims.com';
 
     protected $envLiveBaseCheckoutUrl = 'https://checkout_nz.dimebox.com';
-    protected $envTestBaseCheckoutUrl = 'https://checkout_cst.dimebox.com';
+    protected $envTestBaseCheckoutUrl = 'https://cst2.test-gsc.vfims.com';
 
     protected $envLiveBasePaymentsUrl = 'https://nz.gsc.verifone.cloud';
     protected $envTestBasePaymentsUrl = 'https://cst2.test-gsc.vfims.com';

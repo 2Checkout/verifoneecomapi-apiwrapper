@@ -56,18 +56,18 @@ class SimpleCurl
         $result = curl_exec($this->ch);
         $info = curl_getinfo($this->ch);
         if (curl_errno($this->ch)) {
-            throw new HttpException('There was an error in the application');
+            throw new HttpException($result);
         }
         curl_close($this->ch);
 
         if (!isset($info['http_code'])) {
-            throw new HttpException('There was an error in the application');
+            throw new HttpException($result);
         }
 
         switch ($info['http_code']) {
             case 404:
             case 500:
-                throw new HttpException('There was an error in the application');
+                throw new HttpException($result);
         }
 
         return $result;
