@@ -24,11 +24,11 @@ class RefundSchema implements SchemaInterface
                 'type' => 'string',
             ],
             'reference_id' => [
-                'required' => true,
+                'required' => false,
                 'type' => 'integer',
             ],
             'created_date_time' => [
-                'required' => true,
+                'required' => false,
                 'type' => 'string',
             ],
         ];

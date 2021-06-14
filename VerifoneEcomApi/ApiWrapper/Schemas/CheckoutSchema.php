@@ -8,6 +8,8 @@ namespace VerifoneEcomAPI\ApiWrapper\Schemas;
  */
 class CheckoutSchema implements SchemaInterface
 {
+    const SUPPORTED_I18N_LANGUAGES = ['en', 'da', 'fi', 'fr', 'he', 'no', 'pl', 'pt', 'sv'];
+
     public function getSchema()
     {
         return [
@@ -392,7 +394,7 @@ class CheckoutSchema implements SchemaInterface
                 'default_language' => [
                     'type' => 'string',
                     'required' => false,
-                    'in_values' => ['en', 'fr'],
+                    'in_values' => self::SUPPORTED_I18N_LANGUAGES,
                 ],
                 'show_language_options' => [
                     'type' => 'boolean',
