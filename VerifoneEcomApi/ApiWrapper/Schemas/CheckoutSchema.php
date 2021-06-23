@@ -9,6 +9,7 @@ namespace VerifoneEcomAPI\ApiWrapper\Schemas;
 class CheckoutSchema implements SchemaInterface
 {
     const SUPPORTED_I18N_LANGUAGES = ['en', 'da', 'fi', 'fr', 'he', 'no', 'pl', 'pt', 'sv'];
+    const NORWAY_CODES = ['nb', 'nn'];
 
     public function getSchema()
     {

@@ -10,12 +10,10 @@ class Settings
 {
     private $test;
     private $region;
-    private $api_username;
-    private $api_password;
-    private $api_client_id;
-    private $test_api_username;
-    private $test_api_password;
-    private $test_api_client_id;
+    private $api_user;
+    private $api_key;
+    private $test_api_user;
+    private $test_api_key;
     private $_3ds_enable;
     private $payment_contract_id;
     private $_3ds_contract_id;
@@ -202,25 +200,17 @@ class Settings
     /**
      * @return mixed
      */
-    public function getApiUsername()
+    public function getApiUserId()
     {
-        return $this->isTest() ? $this->test_api_username : $this->api_username;
+        return $this->isTest() ? $this->test_api_user : $this->api_user;
     }
 
     /**
      * @return mixed
      */
-    public function getApiPassword()
+    public function getApiKey()
     {
-        return $this->isTest() ? $this->test_api_password : $this->api_password;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getApiClientId()
-    {
-        return $this->isTest() ? $this->test_api_client_id : $this->api_client_id;
+        return $this->isTest() ? $this->test_api_key : $this->api_key;
     }
 
     /**
@@ -272,76 +262,53 @@ class Settings
     }
 
     /**
-     * @param mixed $api_username
+     * @param mixed $api_user
      *
      * @return $this
      */
-    public function setApiUsername($api_username)
+    public function setApiUserId($api_user)
     {
-        $this->api_username = $api_username;
+        $this->api_user = $api_user;
 
         return $this;
     }
 
     /**
-     * @param mixed $api_password
+     * @param mixed $api_key
      *
      * @return $this
      */
-    public function setApiPassword($api_password)
+    public function setApiKey($api_key)
     {
-        $this->api_password = $api_password;
+        $this->api_key = $api_key;
 
         return $this;
     }
 
     /**
-     * @param mixed $api_client_id
+     * @param mixed $test_api_user
      *
      * @return $this
      */
-    public function setApiClientId($api_client_id)
+    public function setTestApiUserId($test_api_user)
     {
-        $this->api_client_id = $api_client_id;
+        $this->test_api_user = $test_api_user;
 
         return $this;
     }
 
     /**
-     * @param mixed $test_api_username
+     * @param mixed $test_api_key
      *
      * @return $this
      */
-    public function setTestApiUsername($test_api_username)
+    public function setTestApiKey($test_api_key)
     {
-        $this->test_api_username = $test_api_username;
+        $this->test_api_key = $test_api_key;
 
         return $this;
     }
 
-    /**
-     * @param mixed $test_api_password
-     *
-     * @return $this
-     */
-    public function setTestApiPassword($test_api_password)
-    {
-        $this->test_api_password = $test_api_password;
-
-        return $this;
-    }
-
-    /**
-     * @param mixed $test_api_client_id
-     *
-     * @return $this
-     */
-    public function setTestApiClientId($test_api_client_id)
-    {
-        $this->test_api_client_id = $test_api_client_id;
-
-        return $this;
-    }
 
     /**
      * @param $_3ds
